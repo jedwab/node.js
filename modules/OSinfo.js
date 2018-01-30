@@ -5,7 +5,7 @@ function getOSinfo() {
 	var type = os.type();
     var release = os.release();
     var cpu = os.cpus()[0].model;
-    var uptime = os.uptime();
+    var formatedUptime = formatTime.time(uptime);
     var userInfo = os.userInfo();
 
 
@@ -18,19 +18,9 @@ function getOSinfo() {
     console.log('System:', type);
     console.log('Release:', release);
     console.log('CPU model:', cpu);
-    console.log(time.formatTime(uptime));
+    console.log('Uptime:', formatedUptime);
     console.log('User name:', userInfo.username);
     console.log('Home dir:', userInfo.homedir);
 }
-
-exports.print = getOSinfo;
-
-
-
-
-
-
-
-
 
 exports.print = getOSinfo;
