@@ -24,13 +24,3 @@ function getOSinfo() {
 }
 
 exports.print = getOSinfo;
-
-
-
-
-
-
-
-
-
-exports.print = getOSinfo;
