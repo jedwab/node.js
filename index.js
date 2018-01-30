@@ -1,29 +1,15 @@
-var OSinfo = require('./modules/OSinfo');
+var fs = require('fs');
+var colors = require('colors');
 
-process.stdin.setEncoding('utf-8');
-process.stdin.on('readable', function() {
-    var input = process.stdin.read();
-    if (input !== null) {
-        var instruction = input.toString().trim();
-
-
-        switch(instruction) {
-            case '/exit':
-                process.stdout.write('Quitting app!\n');
-                process.exit();
-                break;
-
-            case '/sayhello':
-                process.stdout.write('hello!\n');
-                break;
-
-            case '/getOSinfo':
-
-                OSinfo.print();
-                break;
-
-            default:
-                process.stderr.write('Wrong instruction!\n');
-        }
-    }
+fs.readFile('./tekst.txt', 'utf-8', function(err, data) {
+    console.log('Dane przed zapisem!'.blue);
+    console.log(data);
+    fs.writeFile('./tekst.txt', 'A tak wyglądają po zapisie!', function(err) {
+        if (err) throw err;
+        console.log('Zapisano!'.blue);
+        fs.readFile('./tekst.txt', 'utf-8', function(err, data) {
+            console.log('Dane po zapisie'.blue)
+            console.log(data);
+        });
+    });
 });
