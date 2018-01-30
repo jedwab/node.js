@@ -1,36 +1,22 @@
-var os - require('os');
-var formatTime - require('./formatTime');
+var os = require('os');
+var colors = require('colors');
 
 function getOSinfo() {
-	var type = os.type();
-    var release = os.release();
-    var cpu = os.cpus()[0].model;
-    var uptime = os.uptime();
-    var userInfo = os.userInfo();
-
-
+    var type = os.type();
     if(type === 'Darwin') {
         type = 'OSX';
     } else if(type === 'Windows_NT') {
         type = 'Windows';
     }
-            
-    console.log('System:', type);
-    console.log('Release:', release);
-    console.log('CPU model:', cpu);
-    console.log(time.formatTime(uptime));
-    console.log('User name:', userInfo.username);
-    console.log('Home dir:', userInfo.homedir);
+    var release = os.release();
+    var cpu = os.cpus()[0].model;
+    var uptime = os.uptime();
+    var userInfo = os.userInfo();
+    console.log(colors.grey('System:'), type);
+    console.log(colors.red('Release:'), release);
+    console.log(colors.blue('CPU model:'), cpu);
+    console.log(colors.green('Uptime: ~'), (uptime / 60).toFixed(0), 'min');
+    console.log(colors.yellow('User name:'), userInfo.username);
+    console.log(colors.gray('Home dir:'), userInfo.homedir);
 }
-
-exports.print = getOSinfo;
-
-
-
-
-
-
-
-
-
 exports.print = getOSinfo;
