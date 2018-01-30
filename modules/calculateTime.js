@@ -1,4 +1,4 @@
-function calculateTime (uptime) {
+function formatTime(uptime) {
 
 	var text = 'System uptime: ';
 
@@ -12,4 +12,4 @@ function calculateTime (uptime) {
 }
 
 
-exports.calculateTime = calculateTime;
+exports.formatTime = formatTime;
