@@ -1,15 +1,10 @@
 var fs = require('fs');
 var colors = require('colors');
 
-fs.readFile('./tekst.txt', 'utf-8', function(err, data) {
-    console.log('Dane przed zapisem!'.blue);
-    console.log(data);
-    fs.writeFile('./tekst.txt', 'A tak wyglądają po zapisie!', function(err) {
+fs.readdir('./', function(err, files){
+    if (err) throw err;
+    fs.writeFile('tekst.txt', files, function(err) {
         if (err) throw err;
-        console.log('Zapisano!'.blue);
-        fs.readFile('./tekst.txt', 'utf-8', function(err, data) {
-            console.log('Dane po zapisie'.blue)
-            console.log(data);
-        });
+        console.log('W pliku tekst.txt zapisano zawartość katalogu'.yellow); 
     });
 });

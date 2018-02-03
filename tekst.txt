@@ -1,1 +1,1 @@
-A tak wyglądają po zapisie!
+.git,index.js,node_modules,package-lock.json,package.json,tekst.txt
