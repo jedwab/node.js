@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 node_modules
-=======
-node_modules
->>>>>>> abcb02b222e59d827de8c430702001116efd19b0
