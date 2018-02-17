@@ -2,7 +2,7 @@ var os - require('os');
 var formatTime - require('./formatTime');
 
 function getOSinfo() {
-	var type = os.type();
+    var type = os.type();
     var release = os.release();
     var cpu = os.cpus()[0].model;
     var formatedUptime = formatTime.time(uptime);
