@@ -1,15 +1,8 @@
-function formatTime(uptime) {
-
-	var text = 'System uptime: ';
-
-	if (uptime < 60) {
-		return text + uptime + 'sec';
-	} else if (uptime >= 60 && uptime < 3600 ) {
-		return text + Math.floor((uptime / 60)) + 'min, ' + Math.floor((uptime % 60)) + 'sec';
-	} else {
-		return text +  Math.floor((uptime / 3600)) + 'h, ' + Math.floor((uptime % 3600 / 60)) + 'min, ' + Math.floor((uptime % 60)) + 'sec';
-	}
+function formatTime(sec){
+    var hrs = Math.floor(sec / 3600);
+    var min = Math.floor(sec % 3600 / 60);
+    var s = Math.floor(sec % 3600 - min * 60);
+    return hrs + "h " + min + "min " + s + "s ";
 }
 
-
-exports.formatTime = formatTime;
+exports.time = formatTime;
